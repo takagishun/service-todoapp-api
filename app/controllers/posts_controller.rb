@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   def index
     if current_user
       posts = current_user.posts.order(created_at: 'DESC')
-      logger.info posts.to_s
       render json: {data: posts}
     else
       render json: {message: '認証エラー'}, status: :unauthorized
@@ -36,8 +35,6 @@ class PostsController < ApplicationController
   end
 
   def current_user
-    logger.info "session: #{session[:user_id]}"
-    logger.info "user: #{User.find_by(user_id: session[:user_id])}"
-    @user ||= User.find_by(user_id: session[:user_id])
+    User.find_by(user_id: session[:user_id])
   end
 end
