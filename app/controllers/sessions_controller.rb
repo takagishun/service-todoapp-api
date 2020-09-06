@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
   end
 
   def strong_params
-    params.require(:session).permit(:userId, :password)
+    params.permit(:userId, :password)
   end
 end
