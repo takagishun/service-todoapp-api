@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins %w[https://service-todoapp-front.takagishun.vercel.app http://localhost:3000]
+    origins %w[https://service-todoapp-front.takagishun.vercel.app https://service-todoapp-front.vercel.app http://localhost:3000]
     resource '*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
